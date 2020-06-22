@@ -11,6 +11,8 @@ A series of modifications have been done to make the tidy data set.
 
 #### Descriptions
 The variables used in this project contains following: 
+* subject: the number ID for each project participant
+* activity: which one of the six activities being measured
 * tBodyAccMeanX
 * tBodyAccMeanY
 * tBodyAccMeanZ
