@@ -1,12 +1,19 @@
-First I loaded the 2 main data sets "X_train" and "X_test", and save it as "Xtest" and "Xtrain" and then combine these 2 data frames together as "Xcombine" using rbind() command. 
-The name for each variable was extracted from the "features.txt" file using subset command, and the names were saved in the variable "featurenames"
-Then we assigned the vector "featurenames" to be the column names for data frame "Xcombine"
-We selected columns that contain "mean" or "std" in data frame "Xcombine" and save them into a new data frame called "Xselected"
-I then loaded "y_test.txt" and "y_train.txt" files into R and also combined them together and saved as "ycombine"
-I used the sub() function to replace the activity 1-6 with descriptive names (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING), which were saved in the vector "activity"
-I loaded "subject_test.txt" and "subject_train.txt" files into R and combine them together as "subjectcombine" and rename the first folumn "subject"
-Then we bind the data frame we selected "Xselected", the subject number "subjectcombine", the activity name "activity" all together and form a new data frame called "binded", then we re-arrange the order of the data frame by subject number 1-30. 
-Then I splitted this data frame into groups by "subject" and "activity", which we got 180 groups in total. 
-Then I used the for loop and apply() function together to extract the column mean for column [3:88] for each splitted group since the the first 2 columns of this data frame contains the subject number and activity name, and saved the results in the new data frame "df"
-Once we got the main data for the data frame, we labelled each variable and add the "subject" and "activity" columns back in the data frame using rbind() and separate() function. 
-The final data frame is saved in the object "df.final"
+# Getting and Cleaning Data Course Project
+#### Summary
+This is a Coursera Getting and Cleaning Data Course Project. Given the raw data collected from the accelerometers from the Samsung Galaxy S smartphone, our goal is to reshape the raw data set into a tidy and well labelled data set. 
+
+#### Modifications
+A series of modifications have been done to make the tidy data set. 
+- First we checked if the data set exists in the working directory. If not, download the data set using url and unzip the the file.
+- Then the two main data sets for train and test groups were combined, and each variable was assgined a proper variable name.
+- We only want to extract the measurements on the mean and standard deviation for each measurement. Therefore we selected columns mearing the mean and standard deviation for each measurement. 
+- The activity records for both train and test groups were also combined, and each activity was replaced by proper descriptive names. 
+- We also combined the subject record from both train and test group
+- Then we combined the selected data frame, the activity name and subject records all together
+- We also want to get the average of each variable for each activity and each subject, so we splitted the whole data frame by the subject and activity, extract the average for each group, and put all the results in one data frame. 
+- Unnecessary symbols in variable names such as () were also removed. 
+
+#### Content
+This repo contains:
+- A R script "run_analysis" which returns the tidy data set 
+- A codebook that describes the variables, the data, and modifications I have done to extract the data we need. 
